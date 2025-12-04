@@ -11,57 +11,50 @@ Game::Game() : j1(), j2(), grid()
 
 void Game::start()
 {
-    int selectedCol;
+    int selectedSquare;
     grid.display();
-    cout << currentPlayer->getName() << " a vous de jouer ! Choisissez une colonne : "<<endl;
-    system("pause");
+    j1.setToken("X");
+    j2.setToken("O");
+    do {
+        cout << currentPlayer->getName() << " a vous de jouer ! Choisissez une case : " << endl;
+        cin >> selectedSquare;
+        play(selectedSquare);
 
+        grid.display();
+
+        if (currentPlayer == &j1){
+            currentPlayer = &j2;
+        }else{
+            currentPlayer = &j1;
+        }
+
+
+        system("pause");
+    }while(true);
 }
 
 void Game::selectName()
 {
-    cout << "Veillez saisir le nom du joueur 1 :";
+    cout << "Veuillez saisir le nom du joueur 1 :";
     string name1;
     cin >> name1;
     j1.setName(name1);
-    //cout << "Veillez saisir le token du joueur 1 :";
-    //string token1;
-    // while (true){
-    //     cin >> token1;
-    //     if (token1.size() == 1){
-    //         j1.setToken(token1);
-    //         break;
-    //     }
-    //     cout << "Un seul caractere possible, reessayez :";
-    // }
-    cout << "Veillez saisir le nom du joueur 2 :";
+
+    cout << "Veuillez saisir le nom du joueur 2 :";
     string name2;
     cin >> name2;
      j2.setName(name2);
-     //cout << "Veillez saisir le token du joueur 2 :";
-    //  //string token2;
-    //  while (true){
-    //      cin >> token2;
-    //      if (token2.size() == 1){
-    //         j2.setToken(token2);
-    //         break;
-    //     }
-    //     cout << "Un seul caractere possible, reessayez :";
-    // }
 }
 
-Square Game::play(int col)
+Square Game::play(int carre)
 {
-    Column &currentCol = grid.getColumn(col);
-    for (int i = currentCol.getSquareNumber() - 1; i >= 0; i--)
-    {
-        if (!currentCol.getSquare(i).hasToken())
-        {
-            currentCol.getSquare(i).setToken("x");
-            return currentCol.getSquare(i);
-        }
-    }  
-    return currentCol.getSquare(0);
+    Square &currentSquare = grid.getSquare(carre);
+
+    if(!currentSquare.hasToken()){
+        currentSquare.setToken(currentPlayer->getToken());
+
+    }
+    return currentSquare.getSquare(carre);
 }
 
 
