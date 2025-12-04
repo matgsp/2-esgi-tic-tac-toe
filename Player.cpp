@@ -4,10 +4,10 @@ Player::Player(){}
 
 Player::Player(string n) : name(n) {}
 
-string Player::getNom() const {
+string Player::getName() const {
     return name;
 }
-Void Player::setName(const string& value) {
+void Player::setName(const string& value) {
     name = value;
 }
 

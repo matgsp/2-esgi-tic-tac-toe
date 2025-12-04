@@ -12,6 +12,8 @@
                 "Grid/Square.cpp",
                 "Grid/Column.cpp",
                 "Grid/Grid.cpp",
+                "Player.cpp",
+                "PlayerName.cpp",
                 "Game.cpp",
                 "-o",
                 "main"
