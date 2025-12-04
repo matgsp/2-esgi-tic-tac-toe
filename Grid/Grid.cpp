@@ -1,37 +1,35 @@
 #include "Grid.h"
 #include <iostream>
+#include <array>
 
 using namespace std;
 
 Grid::Grid() {
-    for(int x = 0; x<3; x++) {
-        column_list[x] = Column(x,0);
+    for(int x = 0; x<9; x++) {
+        square_list[x] = Square(x);
     
     }
 }
 
 void Grid::display() {
     system("cls");
-    cout << "--------" << endl;
-    for(int col = 0; col < column_list.size() ; col++) {
-        column_list[col].display();
+    for(int bloc = 0; bloc < 9 ; bloc++) {
+        if(bloc % 3 == 0){
+            cout << endl;
+        }
+        square_list[bloc].displaySquare();
     }
-    cout << "--------"  << endl;
 
 }
 
-Column& Grid::getColumn(int xCoord) {
-    return column_list[xCoord];
-};
+Square& Grid::getSquare(int xCoord) {
+    return square_list[xCoord];
+}
 
-void Grid::reset(){
-    for(int col = 0; col < column_list.size() ; col++) {
+/*void Grid::reset(){
+    for(int col = 0; col < square_list.size() ; col++) {
         for(int x = 0; x < 3; x++){
-            column_list[col].getSquare(x).getToken().reset();
+            square_list[col].getSquare(x).getToken().reset();
         }
     }
-}
-
-bool Grid::columnExist(int xCoord){
-    return xCoord >= 0 && xCoord < column_list.size();
-}
+}*/

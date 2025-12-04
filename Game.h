@@ -18,7 +18,7 @@ class Game
         Game();
         void selectName();
         void start();
-        Square play(int col);
+        Square play(int carre);
 };
 
 #endif
