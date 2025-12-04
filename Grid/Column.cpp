@@ -7,19 +7,19 @@ Column::Column() : x(0) {}
 
 Column::Column(int xCoord, int yCoord) : x(xCoord), y(yCoord) {
     for(int y = 0; y<3; y++) {
-        square_list[y] = Square(xCoord,y);
+        square_list[y] = Square(xCoord);
     }
 }
 
 int Column::getX() const { return x; }
 
-void Column::display() {
+/*void Column::display() {
     cout << "|";
     for(int i = square_list.size() -1; i>= 0; --i) {
         square_list[i].display();
     }
     cout << "|" << endl;
-}
+}*/
 
 Square& Column::getSquare(int yCoord) {
     return square_list[yCoord];

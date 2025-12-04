@@ -9,19 +9,18 @@ using namespace std;
 class Square {
     private:
         int x;
-        int y;
         Optional<string> token;
 
     public:
         Square();
-        Square(int xCoord, int yCoord);
+        Square(int xCoord);
         int getX() const;
-        int getY() const;
         void setToken(const string& value);
         Optional<string>& getToken();
         void clearToken();
+        static int getSquare(int xCoord);
 
-        void display();
+        void displaySquare();
         bool hasToken();
 
 };

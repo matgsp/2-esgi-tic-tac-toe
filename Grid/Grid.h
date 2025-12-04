@@ -3,16 +3,16 @@
 
 #include <array>
 #include "Column.h"
+#include "Square.h"
 
 class Grid {
     private:
-        array<Column,3> column_list;
+        array<Square,9> square_list;
     public:
         Grid();
         void display();
-        Column& getColumn(int xCoord);
+        Square& getSquare(int xCoord);
         void reset();
-        bool columnExist(int xCoord);
 };
 
 #endif

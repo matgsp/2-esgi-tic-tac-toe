@@ -3,12 +3,11 @@
 
 using namespace std;
 
-Square::Square() : x(0), y (0), token() {}
+Square::Square() : x(0), token() {}
 
-Square::Square(int xCoord, int yCoord) : x(xCoord), y (yCoord), token() {}
+Square::Square(int xCoord) : x(xCoord), token() {}
 
 int Square::getX() const { return x; }
-int Square::getY() const { return y; }
 Optional<string>& Square::getToken() {
     return token;
      }
@@ -21,7 +20,7 @@ void Square::clearToken() {
     token.reset();
 }
 
-void Square::display() {
+void Square::displaySquare() {
     cout << "[";
     if(token.has_value()){
         cout << token.value_ref();
@@ -29,6 +28,10 @@ void Square::display() {
         cout << " ";
     }
     cout << "]";
+}
+
+int Square::getSquare(int xCoord) {
+    return xCoord;
 }
 
 bool Square::hasToken(){
