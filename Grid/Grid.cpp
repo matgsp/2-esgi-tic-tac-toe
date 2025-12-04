@@ -12,11 +12,11 @@ Grid::Grid() {
 
 void Grid::display() {
     system("cls");
-    cout << "-----------------------" << endl;
+    cout << "--------" << endl;
     for(int col = 0; col < column_list.size() ; col++) {
         column_list[col].display();
     }
-    cout << "-----------------------"  << endl;
+    cout << "--------"  << endl;
 
 }
 
@@ -26,7 +26,7 @@ Column& Grid::getColumn(int xCoord) {
 
 void Grid::reset(){
     for(int col = 0; col < column_list.size() ; col++) {
-        for(int x = 0; x < 6; x++){
+        for(int x = 0; x < 3; x++){
             column_list[col].getSquare(x).getToken().reset();
         }
     }
